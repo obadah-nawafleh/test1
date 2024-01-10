@@ -43,6 +43,8 @@ A footnote can also have multiple lines[^2].
 
 > [!IMPORTANT]
 > Key information users need to know to achieve their goal.
+>
+> Let's rename \*our-new-project\* to \*our-old-project\*.
 
 > [!WARNING]
 > Urgent info that needs immediate user attention to avoid problems.
