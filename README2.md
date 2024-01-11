@@ -31,7 +31,7 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
   - fare pulses will generated from the test connector of the taxi meter based on the fare calculation function at a maximum speed of 200KM/H with maximum tariff parameters and calculation methods.
 + **Embedded firmware will calculate speed to change calculation methods from time-based to distance-based depending on cross-over speed**:
   - The speed calculation task will update the speed every one second with an accuracy of more than 99%.
-  > [!NOTE]>
+> [!NOTE]
   > There is no MPE related to speed measuring accuracy because fare at cross-over speed will increase at the same rate if the functions calculate the fare based on distance or based on time & we take confirmation from OIML for this note.  
  
 > [!NOTE]
