@@ -16,15 +16,17 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
   - Time pulses from external test connector or internal RTC module to measure trip time with high accuracy & maximum permissible error that meet OIML R-21 standards depending on time pulses factor.
   - Distance pulses from external test connector or external VSS sensor to measure trip distance with high accuracy & maximum permissible error that meet OIML R-21 standards depending on car K-Constant.
 + Embedded firmware will calculate the fare depending on:
-  - Measured trip time.
-  - Measured trip distance.
+  - Measured trip time in seconds.
+  - Measured trip distance in meters.
   - Calculation methods are single or double.
   - Car speed in KM/H
-  - Day/Night tariff
   - Day/Night initial trip distance
   - Day/Night initial trip time
-  - Time/Distance tariff & cross-over speed.
+  - Day/Night Time/Distance tariff & cross-over speed.
   - Day/Night initial fee.
-  - fare steps based on minimum currency unit in our case 0.01 Cu.
+  - Fare steps based on minimum currency unit in our case 0.01 Cu.
+ 
+> [!NOTE]
+> Cross-over speed: The taxi speed (km/h) at which the time-counting and distance-counting methods operate the taximeter at the same rate. The speed value is determined by division of the time tariff value by the applicable distance tariff value.
 
 
