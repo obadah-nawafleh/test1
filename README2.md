@@ -38,11 +38,6 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
   > **Initial distance**: Distance which can be traveled according to the tariff for the initial hire fee, considering distance-counting only.
   >
   > **Initial time**: The period during which the taxi can be used for the initial hire fee, considering time-counting only.
-  
-+ **Embedded firmware will be able to send/receive data & configuration commands through UART-USB serial protocol via COM PORT to peripherals at this capacity:**:
-  -  close to 50 Hz data rate, 50 packets/seconds at a baud rate of 0.460800 MB/second.
-> [!NOTE]
-  > Based on the previous parameters, the peripherals must be able to do all fare calculations that meet OIML standards with no problems, but in our case, we decided to build all functions related to    > fare calculations inside embedded firmware to reduce the possibility of error that related to motherboard os limitations.
 
 + **Embedded firmware will be able to generate fare pulses synchronized with fare result**:
   - fare pulses will generated from the test connector of the taxi meter based on the fare calculation function at a maximum speed of 200KM/H with maximum tariff parameters and calculation methods.
@@ -65,6 +60,10 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
 >
 > **Internal RTC Real-time clock**: The real-time clock shall keep track of the time of the day and the date. One or both values may be used for the automatic change of tariff in our case we use the DS3231D module in the range of -40°C to +85°C, and the accuracy remains at ±3.5ppm (±0.3024 seconds/day), we use INT/SQW pin from RTC as a time measuring signal on 1.024Khz base.
 
-
+### Interfaces
+**Embedded firmware will be able to send/receive data & configuration commands through UART-USB serial protocol via COM PORT to peripherals at this capacity:**:
+  -  close to 50 Hz data rate, 50 packets/seconds at a baud rate of 0.460800 MB/second.
+> [!NOTE]
+  > Based on the previous parameters, the peripherals must be able to do all fare calculations that meet OIML standards with no problems, but in our case, we decided to build all functions related to    > fare calculations inside embedded firmware to reduce the possibility of error that related to motherboard os limitations.
 
 
