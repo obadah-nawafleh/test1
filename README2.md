@@ -64,6 +64,34 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
 **Embedded firmware will be able to send/receive data & configuration commands through UART-USB serial protocol via COM PORT to peripherals at this capacity:**:
   -  close to 50 Hz data rate, 50 packets/seconds at a baud rate of 0.460800 MB/second.
 > [!NOTE]
-  > Based on the previous parameters, the peripherals must be able to do all fare calculations that meet OIML standards with no problems, but in our case, we decided to build all functions related to    fare calculations inside embedded firmware to reduce the possibility of error that related to motherboard os limitations.
+  > Based on the previous parameters, the peripherals must be able to do all fare calculations that meet OIML standards with no problems, but in our case, we decided to build all functions related to    fare calculations inside embedded firmware to reduce the possibility of errors that related user application limitations.
+
+### Data model
++ **Taxi meter embedded firmware data**:
++ + Time stamp include date & time.
+  + Total distance traveled in meters from ignition on.
+  + Uptime (Total time measured from ignition on).
+  + Trip time in seconds.
+  + Trip distance in meters.
+  + Speed in KM/H.
+  + cross-over speed.
+  + single time (sum of time segments in seconds when fare calculation method is time-based in single mode when speed is lower than cross-over speed).
+  + single distance (sum of distance segments in meters when fare calculation method is distance-based in single mode when speed is above cross-over speed).
+  + stored configuration parameters:
+  + + taxi k-constant
+    + day initial fee.
+    + night initial fee.
+    + day initial distance
+    + night initial distance
+    + day initial time
+    + night initial time.
+    + day distance tariff
+    + night distance tariff
+    + day time tariff
+    + night time tariff.
+
+
+Taxi meter embedded firmware settings:
+
 
 
