@@ -29,6 +29,8 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
   -  close to 50 Hz data rate, 50 packets/seconds at a baud rate of 0.460800 MB/second.
 + **Embedded firmware will be able to generate fare pulses synchronized with fare result**:
   - fare pulses will generated from the test connector of the taxi meter based on the fare calculation function at a maximum speed of 200KM/H with maximum tariff parameters and calculation methods.
+> [!NOTE]
+> at maximum speed 200KM/H, Maximum k-constant 6000 pulse/km in our case, output fare signal frequency up to 333.333Hz so embedded firmware will be able to generate the pulses with frequency 333.33Hz or more.
 + **Embedded firmware will calculate speed to change calculation methods from time-based to distance-based depending on cross-over speed**:
   - The speed calculation task will update the speed every one second with an accuracy of more than 99%.
 > [!NOTE]
