@@ -13,8 +13,8 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
 
 ### Functional Requirements
 + **Embedded firmware will measure these parameters**:
-  - Trip time in seconds based on time measuring signal to measure trip time with high accuracy & maximum permissible error that meets OIML R-21 standards.
-  - Trip distance in meters based on distance measuring signal to measure trip distance with high accuracy & maximum permissible error that meets OIML R-21 standards depending on car K-Constant.
+  - Trip time in seconds based on time measuring signal with high accuracy & maximum permissible error (MPE) that meets OIML R-21 standards.
+  - Trip distance in meters based on distance measuring signal with high accuracy & maximum permissible error (MPE) that meets OIML R-21 standards depending on car K-Constant.
 + **Embedded firmware will calculate the fare depending on**:
   - Measured trip time in seconds.
   - Measured trip distance in meters.
@@ -25,8 +25,14 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
   - Day/Night Time/Distance tariff & cross-over speed.
   - Day/Night initial fee.
   - Fare steps based on minimum currency unit in our case 0.01 Cu.
-+ **Embedded firmware will be able to send/receive data & configuration commands through UART-USB serial protocol via COM PORT at a 50 Hz data rate of around 50 packets/seconds at a baud rate of around 0.47MB/second**:
-
++ **Embedded firmware will be able to send/receive data & configuration commands through UART-USB serial protocol via COM PORT to peripherals at this capacity:**:
+  -  close to 50 Hz data rate, 50 packets/seconds at a baud rate of 0.460800 MB/second.
++ **Embedded firmware will be able to generate fare pulses synchronized with fare result**:
+  - fare pulses will generated from the test connector of the taxi meter based on the fare calculation function at a maximum speed of 200KM/H with maximum tariff parameters and calculation methods.
++ **Embedded firmware will calculate speed to change calculation methods from time-based to distance-based depending on cross-over speed**:
+  - The speed calculation task will update the speed every one second with an accuracy of more than 99%.
+  > [!NOTE]>
+  > There is no MPE related to speed measuring accuracy because fare at cross-over speed will increase at the same rate if the functions calculate the fare based on distance or based on time & we take confirmation from OIML for this note.  
  
 > [!NOTE]
 > **Cross-over speed**: Speed of the taxi (km/h) at which the time-counting and distance-counting methods operate the taximeter at the same rate. The speed value is determined by division of the time tariff value by the applicable distance tariff value.
