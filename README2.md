@@ -13,8 +13,8 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
 
 ### Functional Requirements
 + **Embedded firmware will measure these parameters**:
-  - Time in seconds based on time measuring signal to measure trip time with high accuracy & maximum permissible error that meets OIML R-21 standards.
-  - Distance pulses from external test connector or external VSS sensor to measure trip distance with high accuracy & maximum permissible error that meet OIML R-21 standards depending on car K-Constant.
+  - Trip time in seconds based on time measuring signal to measure trip time with high accuracy & maximum permissible error that meets OIML R-21 standards.
+  - Trip distance in meters based on distance measuring signal to measure trip distance with high accuracy & maximum permissible error that meets OIML R-21 standards depending on car K-Constant.
 + **Embedded firmware will calculate the fare depending on**:
   - Measured trip time in seconds.
   - Measured trip distance in meters.
@@ -42,5 +42,7 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
 > **Distance measuring signal**: Signal supplied by the distance measurement transducer to the taximeter, in proportion to the distance traveled in our case it is VSS (Vehicle speed sensor signal) or from test connector distance-input signal.
 >
 > **Time measuring signal**:Signal supplied by a clock incorporated in the taximeter, in proportion to the duration of the journey. from (external test connector time-input signal or internal RTC module pulse signal).
+>
+> **Maximum permissible error, MPE**: Extreme value of an error permitted by specifications, regulations, etc., for a given instrument.in our case, The maximum permissible error for the trip time  is 0.2s or (0.001 x trip time in seconds) which is greater and the maximum permissible error for the trip distance is 4m or (0.002 x trip distance in meters) which is greater.
 
 
