@@ -25,7 +25,7 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
   - Day/Night Time/Distance tariff & cross-over speed.
   - Day/Night initial fee.
   - Fare steps based on minimum currency unit in our case 0.01 Cu.
-+ **Embedded firmware will be able to send/receive data & configuration commands through UART-USB serial protocol via COM PORT**:
++ **Embedded firmware will be able to send/receive data & configuration commands through UART-USB serial protocol via COM PORT at a 50 Hz data rate of around 50 packets/seconds at a baud rate of around 0.47MB/second**:
 
  
 > [!NOTE]
