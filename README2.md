@@ -13,8 +13,8 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
 
 ### Functional Requirements
 + Embedded firmware will measure these parameters:
-+ + Time pulses from external test connector or internal RTC module to measure trip time with high accuracy & maximum permissible error that meet OIML R-21 standards depending on time pulses factor.
-+ + Distance pulses from external test connector or external VSS sensor to measure trip distance with high accuracy & maximum permissible error that meet OIML R-21 standards depending on car K-Constant.
++ - Time pulses from external test connector or internal RTC module to measure trip time with high accuracy & maximum permissible error that meet OIML R-21 standards depending on time pulses factor.
++ - Distance pulses from external test connector or external VSS sensor to measure trip distance with high accuracy & maximum permissible error that meet OIML R-21 standards depending on car K-Constant.
 + Embedded firmware will calculate the fare depending on:
 + + Measured trip time.
 + + Measured trip distance.
