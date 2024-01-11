@@ -26,7 +26,7 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
   - Day/Night initial fee.
   - Fare steps based on minimum currency unit in our case 0.01 Cu.
  
-> [!NOTE]
+> [!NOTES]
 > Cross-over speed: The taxi speed (km/h) at which the time-counting and distance-counting methods operate the taximeter at the same rate. The speed value is determined by division of the time tariff value by the applicable distance tariff value.
 
 
