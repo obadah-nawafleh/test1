@@ -28,7 +28,9 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
  
 > [!NOTE]
 > Cross-over speed: The taxi speed (km/h) at which the time-counting and distance-counting methods operate the taximeter at the same rate. The speed value is determined by division of the time tariff value by the applicable distance tariff value.
+> 
 > Single application of tariff: Fare calculation based on the application of the time tariff below the cross-over speed and application of the distance tariff above the cross-over speed.
+> 
 > Double application of tariff: Fare calculation based on the combined application of time tariff and distance tariff over the whole journey.
 
 
