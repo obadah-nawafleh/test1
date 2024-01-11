@@ -92,6 +92,8 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
 
 
 Taxi meter embedded firmware settings:
-
+> [!WARNING]
+> If you need to add initial distance or initial time you need to add both, because based on the requirements confirmed by team members the calculation must start when
+> trip time reaches initial time or when trip distance reaches initial distance which is faster to reach, we will discuss with OIML about this if there are any notes from their side & make necessary changes.
 
 
