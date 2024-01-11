@@ -15,6 +15,9 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
 + **Embedded firmware will measure these parameters**:
   - Trip time in seconds based on time measuring signal with high accuracy & maximum permissible error (MPE) that meets OIML R-21 standards.
   - Trip distance in meters based on distance measuring signal with high accuracy & maximum permissible error (MPE) that meets OIML R-21 standards depending on car K-Constant.
+> [!NOTE]
+> MPE for trip time is (0.2s or 0.002 from the trip time) which is greater.
+> MPE for trip time is (4 meters or 0.001 from the trip distance) which is greater.
 + **Embedded firmware will calculate the fare depending on**:
   - Measured trip time in seconds.
   - Measured trip distance in meters.
@@ -25,12 +28,15 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
   - Day/Night Time/Distance tariff & cross-over speed.
   - Day/Night initial fee.
   - Fare steps based on minimum currency unit in our case 0.01 Cu.
+  
 + **Embedded firmware will be able to send/receive data & configuration commands through UART-USB serial protocol via COM PORT to peripherals at this capacity:**:
   -  close to 50 Hz data rate, 50 packets/seconds at a baud rate of 0.460800 MB/second.
+> [!NOTE]
+> Based on the previous parameters, the peripherals must be able to do all fare calculations that meet OIML standards with no problems, but in our case, we decided to build all functions related to fare calculations inside embedded firmware to reduce the possibility of error that related to motherboard os limitations.
 + **Embedded firmware will be able to generate fare pulses synchronized with fare result**:
   - fare pulses will generated from the test connector of the taxi meter based on the fare calculation function at a maximum speed of 200KM/H with maximum tariff parameters and calculation methods.
 > [!NOTE]
-> at maximum speed 200KM/H, Maximum k-constant 6000 pulse/km in our case, output fare signal frequency up to 333.333Hz so embedded firmware will be able to generate the pulses with frequency 333.33Hz or more.
+> At maximum speed 200KM/H, Maximum k-constant 6000 pulse/km in our case, output fare signal frequency up to 333.333Hz so embedded firmware will be able to generate the pulses with frequency 333.33Hz or more.
 + **Embedded firmware will calculate speed to change calculation methods from time-based to distance-based depending on cross-over speed**:
   - The speed calculation task will update the speed every one second with an accuracy of more than 99%.
 > [!NOTE]
