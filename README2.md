@@ -57,7 +57,7 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
   > There is no MPE related to speed measuring accuracy because fare at cross-over speed will increase at the same rate if the functions calculate the fare based on distance or based on time & we take confirmation from OIML for this note.
 
 > [!NOTE]
-
+>
 > **Distance measuring signal**: Signal supplied by the distance measurement transducer to the taximeter, in proportion to the distance traveled in our case it is VSS (Vehicle speed sensor signal) or from test connector distance-input signal.
 >
 > **Time measuring signal**:Signal supplied by a clock incorporated in the taximeter, in proportion to the duration of the journey. from (external test connector time-input signal or internal RTC module pulse signal).
