@@ -78,22 +78,34 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
   + single time (sum of time segments in seconds when fare calculation method is time-based in single mode when speed is lower than cross-over speed).
   + single distance (sum of distance segments in meters when fare calculation method is distance-based in single mode when speed is above cross-over speed).
   + stored configuration parameters:
-  + + taxi k-constant
+  + + taxi k-constant.
     + day initial fee.
     + night initial fee.
-    + day initial distance
-    + night initial distance
-    + day initial time
+    + day initial distance.
+    + night initial distance.
+    + day initial time.
     + night initial time.
-    + day distance tariff
-    + night distance tariff
-    + day time tariff
+    + day distance tariff.
+    + night distance tariff.
+    + day time tariff.
     + night time tariff.
 
-
-Taxi meter embedded firmware settings:
 > [!WARNING]
 > If you need to add initial distance or initial time you need to add both, because based on the requirements confirmed by team members the calculation must start when
 > trip time reaches initial time or when trip distance reaches initial distance which is faster to reach, we will discuss with OIML about this if there are any notes from their side & make necessary changes.
+
+Taxi meter settings:
+
++ taxi k-constant.
++ day initial fee.
++ night initial fee.
++ day initial distance.
++ night initial distance.
++ day initial time.
++ night initial time.
++ day distance tariff.
++ night distance tariff.
++ day time tariff.
++ night time tariff.
 
 
