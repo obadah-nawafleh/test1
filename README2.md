@@ -25,6 +25,8 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
   - Day/Night Time/Distance tariff & cross-over speed.
   - Day/Night initial fee.
   - Fare steps based on minimum currency unit in our case 0.01 Cu.
++ **Embedded firmware will be able to send/receive data & configuration commands through UART-USB serial protocol via COM PORT**:
+
  
 > [!NOTE]
 > **Cross-over speed**: Speed of the taxi (km/h) at which the time-counting and distance-counting methods operate the taximeter at the same rate. The speed value is determined by division of the time tariff value by the applicable distance tariff value.
