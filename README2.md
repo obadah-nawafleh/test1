@@ -139,4 +139,16 @@ this task will generate an output fare pulse signal from the test connector(this
 <img src="test_connector.drawio.svg" alt="Your SVG Image" />
 </p>
 
++ **calculate speed task**:
++ This task calculates the speed depending on the rate of distance pulses during one second. (calculate fare task using the speed global variable to change calculation method in single mode between time-based & distance-based).
++ Speed measurement rating update every one second.
+
++ **RTC date/time task**:
++ reads timestamp from accurate internal RTC DS3231N chip & stores all parameters related to RTC in the main USB array
++ Configuring & resetting the RTC module depending on configuration commands from USB peripherals.
++ Determine day or night depending on configured night start time & configured night end time.
+
++ **USB send/receive task**:
++ This task handles configuration & settings commands through USB serial protocol by peripherals.
++ Respond with a 109-byte packet that describes all kinds of parameters related to taxi meters.
 
