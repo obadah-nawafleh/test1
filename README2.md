@@ -136,8 +136,7 @@ this main task will do other sub-tasks:
 this task will generate an output fare pulse signal from the test connector(this signal is used to test fare counting accuracy by OIML).
 
 
-
 <p align="center">
-<img src="test_connector.svg" alt="Your SVG Image" />
+<img src="test_connector.svg" alt="Your SVG Image2" />
 </p>
 
