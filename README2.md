@@ -115,8 +115,8 @@ Taxi meter settings:
 >**Distance tariff value**: Tariff value expressed as an amount of money for a given distance. (in our case amount of money charged per Km).
 
 
+<h1><strong>Microcontroller RTOS Diagram</strong></h1>
 
 <p align="center">
-<h1><strong>Microcontroller RTOS Diagram</strong></h1>
 <img src="rtos_diagram.drawio.svg" alt="Your SVG Image" />
 </p>
