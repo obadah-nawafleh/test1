@@ -126,5 +126,10 @@ this main task will do other sub-tasks:
   + Count trip distance signal pulses & calculate the distance in km depending on the taxi k-constant while the taxi speed is more than the cross-over speed. (let's name it a single distance).
   + Count trip time signal pulses & calculate the time in seconds depending on RTC clock-out frequency while taxi speed is less than or equal to cross-over speed. (let's name it a single time).
   + Calculate fare depending on taxi meter running mode (single/double/day/night) & related parameters of tariffs & cross-over speed.
-  + 
+> [!IMPORTANT]
+> All previous calculation methods for fare applied if there is no time block signal.
+
+> [!NOTE]
+**Time block signal**: Signal to block time counting (if this signal is activated the fare calculation method will be just distance-based, OIML uses this signal to test distance counting accuracy).  
+>
 
