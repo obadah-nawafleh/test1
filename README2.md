@@ -68,31 +68,31 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
 
 ### Data model
 + **Taxi meter embedded firmware data**:
-+ + Time stamp include date & time.
-  + Total distance traveled in meters from ignition on.
-  + Uptime (Total time measured from ignition on).
-  + Trip time in seconds.
-  + Trip distance in meters.
-  + Speed in KM/H.
-  + cross-over speed.
-  + single time (sum of time segments in seconds when fare calculation method is time-based in single mode when speed is lower than cross-over speed).
-  + single distance (sum of distance segments in meters when fare calculation method is distance-based in single mode when speed is above cross-over speed).
-  + fare counting rules (time-based (single), distance-based (single), (time & distance)-based).
-  + active calculation modes (day or night).
+  - Timestamp includes date & time.
+  - Total distance traveled in meters from ignition on.
+  - Uptime (Total time measured from ignition on).
+  - Trip time in seconds.
+  - Trip distance in meters.
+  - Speed in KM/H.
+  - cross-over speed (time tariff per hour/distance tariff per km).
+  - single time (sum of time segments in seconds when fare calculation method is time-based in single mode when speed is lower than cross-over speed).
+  - single distance (sum of distance segments in meters when fare calculation method is distance-based in single mode when speed is above cross-over speed).
+  - fare counting rules (time-based (single), distance-based (single), (time & distance)-based).
+  - active calculation modes (day or night).
     + 
-+ stored configuration parameters:
-+ + taxi k-constant.
-    + day initial fee.
-    + night initial fee.
-    + day initial distance.
-    + night initial distance.
-    + day initial time.
-    + night initial time.
-    + day distance tariff.
-    + night distance tariff.
-    + day time tariff.
-    + night time tariff.
-    + fare counting mode(single/double).
++ **Taxi meter embedded firmware configuration parameters**:
+  - taxi k-constant.
+  - day initial fee.
+  - night initial fee.
+  - day initial distance.
+  - night initial distance.
+  - day initial time.
+  - night initial time.
+  - day distance tariff.
+  - night distance tariff.
+  - day time tariff.
+  - night time tariff.
+  - fare counting mode(single/double).
 
 
 > [!WARNING]
