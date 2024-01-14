@@ -79,39 +79,30 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
   - single distance (sum of distance segments in meters when fare calculation method is distance-based in single mode when speed is above cross-over speed).
   - fare counting rules (time-based (single), distance-based (single), (time & distance)-based).
   - active calculation modes (day or night).
-    + 
-+ **Taxi meter embedded firmware configuration parameters**:
-  - taxi k-constant.
-  - day initial fee.
-  - night initial fee.
-  - day initial distance.
-  - night initial distance.
-  - day initial time.
-  - night initial time.
-  - day distance tariff.
-  - night distance tariff.
-  - day time tariff.
-  - night time tariff.
+  - embedded firmware version.
+  - hardware version.
+  - product code
+  
++ **Taxi meter embedded firmware configuration parameters (Taxi meter settings):**:
+  - taxi k-constant pulse/km.
+  - day initial fee in 0.01 Cu.
+  - night initial fee in 0.01 Cu.
+  - day initial distance in km.
+  - night initial distance in km.
+  - day initial time in seconds.
+  - night initial time in seconds.
+  - day distance tariff per km.
+  - night distance tariff per km.
+  - day time tariff per hour.
+  - night time tariff per hour.
   - fare counting mode(single/double).
+  - night start time
+  - night end time
 
 
 > [!WARNING]
 > If you need to add initial distance or initial time you need to add both, because based on the requirements confirmed by team members the calculation must start when
 > trip time reaches initial time or when trip distance reaches initial distance which is faster to reach, we will discuss with OIML about this if there are any notes from their side & make necessary changes.
-
-Taxi meter settings:
-
-+ taxi k-constant.
-+ day initial fee.
-+ night initial fee.
-+ day initial distance.
-+ night initial distance.
-+ day initial time.
-+ night initial time.
-+ day distance tariff.
-+ night distance tariff.
-+ day time tariff.
-+ night time tariff.
 
 > [!NOTE]
 **Initial hire fee (or initial charge)**: First increment of fare indication upon activation of the taximeter.
