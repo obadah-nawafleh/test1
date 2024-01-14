@@ -108,4 +108,7 @@ Taxi meter settings:
 + day time tariff.
 + night time tariff.
 
+> [!NOTE]
+**Initial hire fee (or initial charge)**: First increment of fare indication upon activation of the taximeter.
+
 
