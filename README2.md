@@ -116,4 +116,4 @@ Taxi meter settings:
 
 **Microcontroller RTOS Diagram**:
 
-          ![Microcontroller OS](rtos_diagram.drawio.svg)
+![Microcontroller OS](rtos_diagram.drawio.svg)
