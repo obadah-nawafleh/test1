@@ -64,7 +64,7 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
 **Embedded firmware will be able to send/receive data & configuration commands through UART-USB serial protocol via COM PORT to peripherals at this capacity:**:
   -  close to 50 Hz data rate, 50 packets/seconds at a baud rate of 0.460800 MB/second.
 > [!NOTE]
-  > Based on the previous parameters, the peripherals must be able to do all fare calculations that meet OIML standards with no problems, but in our case, we decided to build all functions related to    fare calculations inside embedded firmware to reduce the possibility of errors that related user application limitations.
+  > Based on the previous parameters, the peripherals must be able to do all fare calculations that meet OIML standards with no problems, but in our case, we decided to build all functions related to    fare calculations inside embedded firmware to reduce the possibility of error that related user application limitations.
 
 ### Data model
 + **Taxi meter embedded firmware data**:
@@ -135,8 +135,6 @@ this main task will do other sub-tasks:
 + **fare signal output task**:
 this task will generate an output fare pulse signal from the test connector(this signal is used to test fare counting accuracy by OIML).
 
+![Test Connector](test_connector.svg)
 
-<p align="center">
-<img src="test_connector.svg" alt="Your SVG Image2" />
-</p>
 
