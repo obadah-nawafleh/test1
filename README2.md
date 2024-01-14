@@ -120,3 +120,10 @@ Taxi meter settings:
 <p align="center">
 <img src="rtos_diagram.drawio.svg" alt="Your SVG Image" />
 </p>
+
++ **calculate fare task**:
+this main task will do other sub-tasks:
++ + Count total trip distance signal pulses & calculate the distance in km depending on the taxi k-constant in all running modes (single/double/day/night).
+  + Count total trip time signal pulses & calculate the time in seconds based on RTC clock output frequency (in our case 1024 pulse/second) in all running modes (single/double/day/night).
+  + Count trip distance signal pulses & calculate the distance in km depending on the taxi k-constant while 
+
