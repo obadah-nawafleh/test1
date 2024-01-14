@@ -113,5 +113,6 @@ Taxi meter settings:
 >**Fare increment step**:Smallest amount of money by which the fare may be incremented in equal steps in the "Hired" (Occupied) operating position by the national regulations.(in our case we choose a constant fare step equal to 0.01 Cu.
 >**Time tariff value**: Tariff value expressed as an amount of money for a given period of time. (in our case amount of money charged per hour).
 >**Distance tariff value**: Tariff value expressed as an amount of money for a given distance. (in our case amount of money charged per Km).
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](rtos_diagram.drawio.svg)
+
+![Microcontroller OS](rtos_diagram.drawio.svg)
 
