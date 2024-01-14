@@ -114,10 +114,9 @@ Taxi meter settings:
 >**Time tariff value**: Tariff value expressed as an amount of money for a given period of time. (in our case amount of money charged per hour).
 >**Distance tariff value**: Tariff value expressed as an amount of money for a given distance. (in our case amount of money charged per Km).
 
-<div style="text-align: center;">
-<h1><strong>Microcontroller RTOS Diagram</strong></h1>
-</div>
+
 
 <p align="center">
+<h1><strong>Microcontroller RTOS Diagram</strong></h1>
 <img src="rtos_diagram.drawio.svg" alt="Your SVG Image" />
 </p>
