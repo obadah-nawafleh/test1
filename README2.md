@@ -77,8 +77,11 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
   + cross-over speed.
   + single time (sum of time segments in seconds when fare calculation method is time-based in single mode when speed is lower than cross-over speed).
   + single distance (sum of distance segments in meters when fare calculation method is distance-based in single mode when speed is above cross-over speed).
-  + stored configuration parameters:
-  + + taxi k-constant.
+  + fare counting rules (time-based (single), distance-based (single), (time & distance)-based).
+  + active calculation modes (day or night).
+    + 
++ stored configuration parameters:
++ + taxi k-constant.
     + day initial fee.
     + night initial fee.
     + day initial distance.
@@ -89,6 +92,8 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
     + night distance tariff.
     + day time tariff.
     + night time tariff.
+    + fare counting mode(single/double).
+
 
 > [!WARNING]
 > If you need to add initial distance or initial time you need to add both, because based on the requirements confirmed by team members the calculation must start when
@@ -123,7 +128,10 @@ Taxi meter settings:
 
 + **calculate fare task**:
 this main task will do other sub-tasks:
-+ + Count total trip distance signal pulses & calculate the distance in km depending on the taxi k-constant in all running modes (single/double/day/night).
+  + Count total trip distance signal pulses & calculate the distance in km depending on the taxi k-constant in all running modes (single/double/day/night).
   + Count total trip time signal pulses & calculate the time in seconds based on RTC clock output frequency (in our case 1024 pulse/second) in all running modes (single/double/day/night).
-  + Count trip distance signal pulses & calculate the distance in km depending on the taxi k-constant while the taxi speed is more than the cross-over speed. (single distance ).
+  + Count trip distance signal pulses & calculate the distance in km depending on the taxi k-constant while the taxi speed is more than the cross-over speed. (let's name it a single distance).
+  + Count trip time signal pulses & calculate the time in seconds depending on RTC clock-out frequency while taxi speed is less than or equal to cross-over speed. (let's name it a single time).
+  + Calculate fare depending on taxi meter running mode (single/double/day/night) & related parameters of tariffs & cross-over speed.
+  + 
 
