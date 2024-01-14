@@ -132,4 +132,6 @@ this main task will do other sub-tasks:
 > [!NOTE]
 **Time block signal**: Signal to block time counting (if this signal is activated the fare calculation method will be just distance-based, OIML uses this signal to test distance counting accuracy).  
 >
++ **fare signal output task**:
+this task will generate an output fare pulse signal from the test connector(this signal is used to test fare counting accuracy by OIML).
 
