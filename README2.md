@@ -296,7 +296,7 @@ other bytes from a 16-byte array don't care.
 > [!NOTE]
 > All trip parameters will cleared directly before the trip starts.(trip distance, trip time, etc..)
 
-# auto stop after reaching fare 0.01 Cu or 0.1 Cu configuration:**
+#### auto stop after reaching fare 0.01 Cu or 0.1 Cu configuration:**
 
 data length must = 16;
 
