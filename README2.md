@@ -253,17 +253,28 @@ Arr[103-108]=['A', 'B',' C',' D', CR, LF]
 **command  (16) bytes array (you can test on serial terminal or python_script_testing_tool):**
 request data:
 data length must = 16;
+
 data[0]=0X2A;// or '*' 
+
 data[1]='7';// or 0X37 
+
 data[15]=0x0A;//Line feed
+
 other bytes from a 16-byte array don't care.
 
+
 stop trip:
+
 data length must = 16;
+
 data[0]=0X2A;// or '*' 
+
 data[1]='0';// or 0X30
+
 data[15]=0x0A;//Line feed
+
 other bytes from a 16-byte array don't care.
+
 > [!NOTE]
 > All trip parameters will be stored until the next trip start.
 
