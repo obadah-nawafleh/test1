@@ -314,10 +314,51 @@ data[15]=0x0A;//Line feed
 
 other bytes from a 16-byte array don't care.
 > [!NOTE]
-> These modes of operation just for testing.
+> These modes of operation are just for testing.
 > The OIML team will connect measurement devices to the test connector to count time pulses & distance pulses when the fare reaches 0.1 Cu to calculate the time-measuring accuracy & calculate the distance-measuring accuracy so we add this mode to test the firmware & eliminate USB communication packet time.
 >
 
+#### set RTC time-date as string characters:
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='3';// or 0X33
+
+data[2]=houres value (tens);//character byte
+
+data[3]=houres value (ones);//character byte
+
+data[4]=minutes value (tens);//character byte
+
+data[5]=minutes value (ones);//character byte
+
+data[6]=seconds value (tens);//character byte
+
+data[7]=seconds value (ones);//character byte
+
+data[8]=years value (tens);//character byte
+
+data[9]=years value (ones);//character byte
+
+data[10]=months value (tens);//character byte
+
+data[11]=months value (ones);//character byte
+
+data[12]=days value (tens);//character byte
+
+data[13]=days value (ones);//character byte
+
+data[14]=[X];//Do not care
+
+data[15]=0x0A;//Line feed
+
+
+#### Turn on/off general purpose 12v outputs & GPIOs:
+> [!NOTE]
+> we have on taxi meter 
+>
 
 
 
