@@ -252,7 +252,7 @@ Arr[103-108]=['A', 'B',' C',' D', CR, LF]
 
 **command  (16) bytes array (you can test on serial terminal or python_script_testing_tool):**
 
-request data:
+# request data:
 
 data length must = 16;
 
@@ -265,7 +265,7 @@ data[15]=0x0A;//Line feed
 other bytes from a 16-byte array don't care.
 
 
-stop trip:
+# stop trip:
 
 data length must = 16;
 
@@ -281,7 +281,7 @@ other bytes from a 16-byte array don't care.
 > All trip parameters will be stored until the next trip start.
 
 
-start trip:
+# start trip:
 
 data length must = 16;
 
@@ -296,7 +296,7 @@ other bytes from a 16-byte array don't care.
 > [!NOTE]
 > All trip parameters will cleared directly before the trip starts.(trip distance, trip time, etc..)
 
-**auto stop after reaching fare 0.01 Cu or 0.1 Cu configuration:**
+# auto stop after reaching fare 0.01 Cu or 0.1 Cu configuration:**
 
 data length must = 16;
 
@@ -308,4 +308,4 @@ data[15]=0x0A;//Line feed
 
 other bytes from a 16-byte array don't care.
 > [!NOTE]
-> All trip parameters will cleared directly before the trip starts.(trip distance, trip time, etc..)
+> All trip parameters will cleared directly before the trip starts. (trip distance, trip time, etc..)
