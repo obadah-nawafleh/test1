@@ -252,7 +252,7 @@ Arr[103-108]=['A', 'B',' C',' D', CR, LF]
 
 **command  (16) bytes array (you can test on serial terminal or python_script_testing_tool):**
 
-# request data:
+#### request data:
 
 data length must = 16;
 
@@ -265,7 +265,7 @@ data[15]=0x0A;//Line feed
 other bytes from a 16-byte array don't care.
 
 
-# stop trip:
+#### stop trip:
 
 data length must = 16;
 
@@ -281,7 +281,7 @@ other bytes from a 16-byte array don't care.
 > All trip parameters will be stored until the next trip start.
 
 
-# start trip:
+#### start trip:
 
 data length must = 16;
 
@@ -304,8 +304,20 @@ data[0]=0X2A;// or '*'
 
 data[1]='2';// or 0X32
 
+data[2]='0';// or 0X30 (if you need normal stop trip behaviour)
+
+data[2]='1';// or 0X31 (if you need trip auto-stopped after reaching 0.01Cu)
+
+data[2]='2';// or 0X32 (if you need trip auto-stopped after reaching 0.1Cu)
+
 data[15]=0x0A;//Line feed
 
 other bytes from a 16-byte array don't care.
 > [!NOTE]
-> All trip parameters will cleared directly before the trip starts. (trip distance, trip time, etc..)
+> These modes of operation just for testing.
+> The OIML team will connect measurement devices to the test connector to count time pulses & distance pulses when the fare reaches 0.1 Cu to calculate the time-measuring accuracy & calculate the distance-measuring accuracy so we add this mode to test the firmware & eliminate USB communication packet time.
+>
+
+
+
+
