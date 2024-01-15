@@ -147,19 +147,21 @@ this task will generate an output fare pulse signal from the test connector(this
 + **RTC date/time task**:
 + reads timestamp from accurate internal RTC DS3231N chip & stores all parameters related to RTC in the main USB array
 + Configuring & resetting the RTC module depending on configuration commands from USB peripherals.
-+ Determine day or night depending on configured night start time & configured night end time.
++ Determine day or night depending on the configured night start time & configured night end time.
 
 + **USB send/receive task**:
 + This task handles configuration & settings commands through USB serial protocol by peripherals.
 + Respond with a 109-byte packet that describes all kinds of parameters related to taxi meters.
 
 Baud rate: 460800bps/Serial COM (109) received bytes array must requested by this command with these conditions:
+
 data length must = 16;
-data[0]==0X2A;//'*' 
-data[15]==0x0A;//Line feed
+data[0]=0X2A;// or '*' 
+data[1]='7';// or 0X37 
+data[15]=0x0A;//Line feed
 other bytes from a 16-byte array don't care.
 
-received data received (109) bytes array:
+**received data received (109) bytes array (you can test on serial terminal or python_script_testing_tool):**
 
 Arr[0-3]:Total distance (uint32) start counting after ignition on:
 must divide by 1 Constant to get the distance in centimeters.
@@ -188,7 +190,7 @@ must be divided by 100000 Constant to get the distance in kilometers.
  
 Arr[32-35]: Trip time (uint32) starts counting after sending the start command
 must  be divided by 1 to get the time closest to (0.01 seconds).
-must  be divided by 100 to get time in closest to (1 seconds).
+must  be divided by 100 to get the time closest to (1 second).
  
 Arr[36-37]: Stored K_Constant (uint16) default value 2000.
  
@@ -246,4 +248,40 @@ Arr[97-99]: night start time [byte hour, byte minutes, byte seconds]
  
 Arr[100-102]: night end time [byte hour, byte minutes, byte seconds]
  
-Arr[103-108]=['A', 'B',' C',' D', CR,LF]
+Arr[103-108]=['A', 'B',' C',' D', CR, LF]
+
+**command  (16) bytes array (you can test on serial terminal or python_script_testing_tool):**
+request data:
+data length must = 16;
+data[0]=0X2A;// or '*' 
+data[1]='7';// or 0X37 
+data[15]=0x0A;//Line feed
+other bytes from a 16-byte array don't care.
+
+stop trip:
+data length must = 16;
+data[0]=0X2A;// or '*' 
+data[1]='0';// or 0X30
+data[15]=0x0A;//Line feed
+other bytes from a 16-byte array don't care.
+> [!NOTE]
+> All trip parameters will be stored until the next trip start.
+
+
+start trip:
+data length must = 16;
+data[0]=0X2A;// or '*' 
+data[1]='1';// or 0X31
+data[15]=0x0A;//Line feed
+other bytes from a 16-byte array don't care.
+> [!NOTE]
+> All trip parameters will cleared directly before the trip starts.(trip distance, trip time, etc..)
+
+**auto stop after reaching fare 0.01 Cu or 0.1 Cu configuration:**
+data length must = 16;
+data[0]=0X2A;// or '*' 
+data[1]='2';// or 0X32
+data[15]=0x0A;//Line feed
+other bytes from a 16-byte array don't care.
+> [!NOTE]
+> All trip parameters will cleared directly before the trip starts.(trip distance, trip time, etc..)
