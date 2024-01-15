@@ -79,6 +79,7 @@ embedded firmware for the taxi-meter device will measure & calculate a lot of pa
   - single distance (sum of distance segments in meters when fare calculation method is distance-based in single mode when speed is above cross-over speed).
   - fare counting rules (time-based (single), distance-based (single), (time & distance)-based).
   - active calculation modes (day or night).
+  - start fare calculation flag (indicate that fare calculation start & distance reach initial distance or time reach initial time).
   - embedded firmware version.
   - hardware version.
   - product code
@@ -152,3 +153,97 @@ this task will generate an output fare pulse signal from the test connector(this
 + This task handles configuration & settings commands through USB serial protocol by peripherals.
 + Respond with a 109-byte packet that describes all kinds of parameters related to taxi meters.
 
+Baud rate: 460800bps/Serial COM (109) received bytes array must requested by this command with these conditions:
+data length must = 16;
+data[0]==0X2A;//'*' 
+data[15]==0x0A;//Line feed
+other bytes from a 16-byte array don't care.
+
+received data received (109) bytes array:
+
+Arr[0-3]:Total distance (uint32) start counting after ignition on:
+must divide by 1 Constant to get the distance in centimeters.
+must divide by 100 Constant to get the distance in meters.
+must divide by 100000 Constant to get the distance in kilometers.
+ 
+Arr[4-7]:Up Time (uint32) start counting after ignition on:
+must divide by 1 to get the time closest to (0.01 seconds).
+must divide by 100 to get the time closest to (1 second).
+
+Arr[8-11]:Car Speed (uint32):
+must divide by 100 to get a speed closest to 0.01 KM/H.
+ 
+Arr[12-14]: Time in HH MM SS (uint8). HH (24).
+ 
+Arr[15-17]: Date in YY MM DD (uint8).
+ 
+Arr[20-23]: Fare (uint32) in 0.01Cu
+ 
+Arr[24-27]: Secret (uint32)
+ 
+Arr[28-31]: Trip distance (uint32) starts counting after sending the start command
+must be divided by 1 Constant to get the distance in centimeters.
+must be divided by 100 Constant to get the distance in meters.
+must be divided by 100000 Constant to get the distance in kilometers.
+ 
+Arr[32-35]: Trip time (uint32) starts counting after sending the start command
+must  be divided by 1 to get the time closest to (0.01 seconds).
+must  be divided by 100 to get time in closest to (1 seconds).
+ 
+Arr[36-37]: Stored K_Constant (uint16) default value 2000.
+ 
+Arr[38]: Mode uint8 (Single or Double):
+if(data==0):Single
+if(data==1):Double
+ 
+Arr[39-40]: Day tariff per hour (uint16) in 0.01 Cu
+ 
+Arr[41-42]: Day tariff per Km (uint16) in 0.01 Cu
+ 
+Arr[43-46]: Calculated cross-over speed based on stored tariff per hour & tariff per km (uint32):
+must to divided by 100 to get a cross-over speed closest to 0.01 KM/H.
+ 
+Arr[47]: fare calculation method uint8 (time based, distance based, time & distance based):
+if(data==0):Time based
+if(data==1):Distance based
+if(data==2):Distance & Time based
+ 
+Arr[48-49]: day Initial hire fee (uint16) in 0.01 Cu
+ 
+Arr[50-53]: day initial time (uint32) in milliseconds (0.001 seconds).
+ 
+Arr[54-57]: day initial distance (uint32) in meters (1 meters).
+
+Arr[58]: start fare calculation flag (uint8)
+if(data==0)car moving within initial (time or distance).
+if(data==1)car moving after initial (time or distance).
+ 
+Arr[59-62]: number of time pulses (rising & falling) when the system calculates fare in single mode time based (while car moving below cross over speed), single time. (uint32).
+ 
+Arr[63-66]: number of distance pulses (rising & falling) when the system calculates fare in single mode distance based (while car moving in cross over speed or more) single distance. (uint32).
+ 
+Arr[67-68]: Firmware Version (uint16) must divide by 1000.
+ 
+Arr[69-70]: Hardware Version (uint16) must divide by 1000.
+ 
+Arr[71-81]=Product Code ASCI.
+ 
+Arr[82-83]: Night tariff/H  (uint16) in 0.01 Cu
+ 
+Arr[84-85]: Night tariff/K  (uint16) in 0.01 Cu
+ 
+Arr[86-87]: Night Initial hire fee (uint16) in 0.01 Cu
+ 
+Arr[88]: Day/Night config uint8:
+if(data==0)day
+if(data==1)night
+
+Arr[89-92]: night initial time (uint32) in milliseconds (0.001 seconds).
+ 
+Arr[93-96]: night initial distance (uint32) in meters (1 meters).
+ 
+Arr[97-99]: night start time [byte hour, byte minutes, byte seconds]
+ 
+Arr[100-102]: night end time [byte hour, byte minutes, byte seconds]
+ 
+Arr[103-108]=['A', 'B',' C',' D', CR,LF]
