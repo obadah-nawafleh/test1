@@ -356,9 +356,44 @@ data[15]=0x0A;//Line feed
 
 
 #### Turn on/off general purpose 12v outputs & GPIOs:
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='5';// or 0X35
+
+data[2]='0';//or 0x30 (out1_12v_output_off)
+
+data[2]='1';//or 0x31 (out1_12v_output_on)
+
+data[3]='0';//or 0x30 (out2_12v_output_off)
+
+data[3]='1';//or 0x31 (out2_12v_output_on)
+
+data[4]='0';//or 0x30 (debugging_led1_test_point_low)
+
+data[4]='1';//or 0x31 (debugging_led1_test_point_high)
+
+data[5]='0';//or 0x30 (debugging_led2_test_point_low)
+
+data[5]='1';//or 0x31 (debugging_led2_test_point_high)
+
+data[6]='0';//or 0x30 (debugging_led3_test_point_low)
+
+data[6]='1';//or 0x31 (debugging_led3_test_point_high)
+
+data[7]='0';//or 0x30 (debugging_led4_test_point_low)
+
+data[7]='1';//or 0x31 (debugging_led4_test_point_high)
+
+data[14]=[X];//Do not care
+
+data[15]=0x0A;//Line feed
+
 > [!NOTE]
-> we have on taxi meter 
->
+> We have on the taxi meter two 12v general purpose outputs we can use to turn on/off taxi lights in addition to 4 GPIOs as test points on PCB.
+> default value for all general purpose output signals is low.
 
 
 
