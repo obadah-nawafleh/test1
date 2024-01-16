@@ -3,6 +3,9 @@
 
 ### Objective
 build embedded firmware for taxi-meter devices that meet OIML standards R-21.
+<p align="center">
+<img src="OIML_logo.png" alt="Your SVG Image" />
+</p>
 
 ### Background
 After the widespread of electronic systems for calculating fares in TAXI public transportation, there has become an urgent need to establish accurate standards for measuring the costs of trips and fares from passengers. Hence the a need for OIML standards through which transportation fees are determined accurately based on several data and methods that ensure this.
