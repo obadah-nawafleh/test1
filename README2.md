@@ -393,7 +393,112 @@ data[15]=0x0A;//Line feed
 
 > [!NOTE]
 > We have on the taxi meter two 12v general purpose outputs we can use to turn on/off taxi lights in addition to 4 GPIOs as test points on PCB.
-> default value for all general purpose output signals is low.
+> The default value for all general-purpose output signals is low.
+
+#### handshaking secret command (unsigned long as a string (10 digits)):
+ex.number="1234567890"
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='6';// or 0X36
+
+data[2]='0';//'1'
+
+data[3]='0';//'2'
+
+data[4]='0';//'3'
+
+data[5]='0';//'4'
+
+data[6]='0';//'5'
+
+data[7]='0';//'6'
+
+data[8]='0';//'7'
+
+data[9]='0';//'8'
+
+data[10]='0';//'9'
+
+data[11]='0';//'0'
+
+data[12]=[X];//Do not care
+
+data[13]=[X];//Do not care
+
+data[14]=[X];//Do not care
+
+data[15]=0x0A;//Line feed
+
+secret_value = (number/2+177)%254;
 
 
+#### handshaking hello string command :
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='9';// or 0X39
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+hello_string="Hello From Taximeter";
+
+
+#### configure k-constant command :
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='A';// or 0X41
+
+data[2-3]:k_constant (uint16) [MSB,LSB]
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+> [!IMPORTANT]
+> k-constant must be within the range of 2000 to 6000 other values will be ignored
+
+
+#### configure k-constant command :
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='A';// or 0X41
+
+data[2-3]:k_constant (uint16) [MSB,LSB]
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+> [!IMPORTANT]
+> k-constant must be within the range of 2000 to 6000 other values will be ignored
+>
+
+#### Configure day tariff per hour command :
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='B';// or 0X42
+
+data[2-3]: day tariff per hour (uint16) in 0.01 Cu [MSB,LSB]
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+> [!IMPORTANT]
+> day tariff per hour must be within the range of 0 Cu to 100 Cu in 0.01 Cu [MSB, LSB] other values will be ignored 
 
