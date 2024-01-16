@@ -5,7 +5,6 @@
 build embedded firmware for taxi-meter devices that meet OIML standards R-21.
 <p align="center">
   <img src="taxi.png" alt="Your SVG Image" />
-<img src="OIML_logo.png" alt="Your SVG Image" />
 </p>
 
 ### Background
