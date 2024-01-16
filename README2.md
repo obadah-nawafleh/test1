@@ -467,24 +467,6 @@ other bytes from a 16-byte array don't care.
 > k-constant must be within the range of 2000 to 6000 other values will be ignored
 
 
-#### configure k-constant command :
-
-data length must = 16;
-
-data[0]=0X2A;// or '*' 
-
-data[1]='A';// or 0X41
-
-data[2-3]:k_constant (uint16) [MSB,LSB]
-
-data[15]=0x0A;//Line feed
-
-other bytes from a 16-byte array don't care.
-
-> [!IMPORTANT]
-> k-constant must be within the range of 2000 to 6000 other values will be ignored
->
-
 #### Configure day tariff per hour command :
 
 data length must = 16;
@@ -500,5 +482,208 @@ data[15]=0x0A;//Line feed
 other bytes from a 16-byte array don't care.
 
 > [!IMPORTANT]
-> day tariff per hour must be within the range of 0 Cu to 100 Cu in 0.01 Cu [MSB, LSB] other values will be ignored 
+> day tariff per hour must be within the range of 0 Cu to 100 Cu in 0.01 Cu [MSB, LSB] other values will be ignored
+> For example if the day tariff per hour is 5$ you must send 500.
+
+#### Configure day tariff per km command :
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='C';// or 0X43
+
+data[2-3]: day tariff per km (uint16) in 0.01 Cu [MSB,LSB]
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+> [!IMPORTANT]
+> day tariff per km must be within the range of 0.01 Cu to 100 Cu in 0.01 Cu [MSB, LSB] other values will be ignored
+> If you send a zero value the updated value will be 0.01 Cu.
+> For example if the day tariff per km is 5$ you must send 500.
+
+#### Configure day initial hire fee command :
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='D';// or 0X44
+
+data[2-3]: day initial hire fee (uint16) in 0.01 Cu [MSB,LSB]
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+> [!IMPORTANT]
+> day initial hire fee must be within the range of 0.00 Cu to 2.00 Cu in 0.01 Cu [MSB, LSB] other values will be ignored
+
+
+
+#### Configure mode of operation command (single/double):
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='E';// or 0X45
+
+data[2-3]: mode of operation (uint16) [MSB,LSB]  
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+> [!NOTE]
+> if(data==0):configure single mode
+> if(data==1):configure double mode
+
+#### Configure day initial time command:
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='F';// or 0X46
+
+data[2-5]: day initial time (uint32) in 0.001 seconds [MSB,.,.LSB]
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+> [!IMPORTANT]
+> Initial time must be within the range of 0.00 seconds to 10800.0 seconds (3 hours) [MSB, LSB] other values will be ignored
+
+
+#### Configure day initial distance command:
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='G';// or 0X47
+
+data[2-5]: day initial distance (uint32) in 0.001 meter [MSB,.,.LSB]
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+> [!IMPORTANT]
+> Initial distance must be within the range of 0.00 meters to 3000 meters (3 km) [MSB, LSB] other values will be ignored
+
+
+#### Configure night tariff per hour command :
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='H';// or 0X48
+
+data[2-3]: night tariff per hour (uint16) in 0.01 Cu [MSB,LSB]
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+> [!IMPORTANT]
+> night tariff per hour must be within the range of 0 Cu to 100 Cu in 0.01 Cu [MSB, LSB] other values will be ignored
+> For example if the night tariff per hour is 5$ you must send 500.
+
+#### Configure night tariff per km command :
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='I';// or 0X49
+
+data[2-3]: night tariff per km (uint16) in 0.01 Cu [MSB,LSB]
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+> [!IMPORTANT]
+> night tariff per km must be within the range of 0.01 Cu to 100 Cu in 0.01 Cu [MSB, LSB] other values will be ignored
+> If you send a zero value the updated value will be 0.01 Cu.
+> For example if the day tariff per km is 5$ you must send 500.
+
+#### Configure night initial hire fee command :
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='J';// or 0X4A
+
+data[2-3]: night initial hire fee (uint16) in 0.01 Cu [MSB,LSB]
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+> [!IMPORTANT]
+> night initial hire fee must be within the range of 0.00 Cu to 2.00 Cu in 0.01 Cu [MSB, LSB] other values will be ignored
+
+
+#### Configure night initial time command:
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='L';// or 0X4C
+
+data[2-5]: night initial time (uint32) in 0.001 seconds [MSB,.,.LSB]
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+> [!IMPORTANT]
+> Initial time must be within the range of 0.00 seconds to 10800.0 seconds (3 hours) [MSB, LSB] other values will be ignored
+
+
+#### Configure night initial distance command:
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='M';// or 0X4D
+
+data[2-5]: night initial distance (uint32) in 0.001 meter [MSB,.,.LSB]
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+> [!IMPORTANT]
+> Initial distance must be within the range of 0.00 meters to 3000 meters (3 km) [MSB, LSB] other values will be ignored
+
+
+#### Configure night (start/end) time:
+
+data length must = 16;
+
+data[0]=0X2A;// or '*' 
+
+data[1]='N';// or 0X4E
+
+data[2-4]: night start time (uint8) per byte [HH:MM:SS]
+data[5-7]: night end time (uint8) per byte [HH:MM:SS]
+
+data[15]=0x0A;//Line feed
+
+other bytes from a 16-byte array don't care.
+
+> [!IMPORTANT]
+> Start night time & end night time bytes must be within normal ranges of time stamp (HH<=23 mm<=59 SS<=59) other values will ignored.
+
 
